@@ -1,5 +1,6 @@
 json.set! :blog_entry do
   json.title @blog_entry.title
+  json.main_image @blog_entry.blog_entry_image ? blog_entry.blog_entry_image.attachment.url(:large) : nil
   json.subtitle @blog_entry.subtitle
   json.byline @blog_entry.byline
   json.body @blog_entry.body
