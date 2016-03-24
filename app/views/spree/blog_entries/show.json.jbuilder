@@ -11,6 +11,8 @@ json.set! :blog_entry do
   json.published_at @blog_entry.published_at
   json.summary @blog_entry.summary
   json.categories @blog_entry.categories
+  json.seo_title @blog_entry.get_seo_title
+  json.seo_description @blog_entry.get_seo_description
 end
 
 json.set! :meta do

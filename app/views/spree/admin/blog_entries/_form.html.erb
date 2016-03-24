@@ -138,3 +138,29 @@
     <% end %>
   </div>
 </div>
+
+<div class='row'>
+  <div class="col-sm-12">
+    <h4>SEO Fields</h4>
+    <hr />
+    <%= form.field_container :seo_title do %>
+      <div class="form-group">
+        <%= form.label :seo_title %>
+        <%= form.text_field :seo_title, { class: 'form-control'} %>
+        <%= form.error_message_on :seo_title %>
+       </div>
+    <% end %>
+  </div>
+</div>
+
+<div class='row'>
+  <div class="col-sm-12">
+    <%= form.field_container :seo_description do %>
+      <div class="form-group">
+        <%= form.label :seo_description %>
+        <%= form.text_area :seo_description, { rows: 3, class: 'form-control', id: 'blog_entry_seo_description'} %>
+        <%= form.error_message_on :seo_description %>
+       </div>
+    <% end %>
+  </div>
+</div>
