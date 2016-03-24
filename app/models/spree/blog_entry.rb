@@ -88,11 +88,11 @@ class Spree::BlogEntry < ActiveRecord::Base
   end
 
   def get_seo_title
-    self.seo_title || self.title
+    self.seo_title.present? ? self.seo_title : self.title
   end
 
   def get_seo_description
-    self.seo_description || self.summary
+    self.seo_description.present? ? self.seo_description : self.summary
   end
 
 end
