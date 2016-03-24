@@ -64,6 +64,14 @@ class Spree::BlogEntry < ActiveRecord::Base
     end
   end
 
+  def get_seo_title
+    self.seo_title.present? ? self.seo_title : self.title
+  end
+
+  def get_seo_description
+    self.seo_description.present? ? self.seo_description : self.summary
+  end
+
   private
 
   def self.years
@@ -85,14 +93,6 @@ class Spree::BlogEntry < ActiveRecord::Base
   def validate
     # nicEdit field contains "<br>" when blank
     errors.add(:body, "can't be blank") if body =~ /^<br>$/
-  end
-
-  def get_seo_title
-    self.seo_title.present? ? self.seo_title : self.title
-  end
-
-  def get_seo_description
-    self.seo_description.present? ? self.seo_description : self.summary
   end
 
 end
