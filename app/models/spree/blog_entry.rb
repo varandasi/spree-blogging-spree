@@ -20,6 +20,9 @@ class Spree::BlogEntry < ActiveRecord::Base
   has_one :blog_entry_image, :as => :viewable, :dependent => :destroy, :class_name => 'Spree::BlogEntryImage'
   accepts_nested_attributes_for :blog_entry_image, :reject_if => :all_blank
 
+  has_many :blog_entry_sections, :dependent => :destroy
+  accepts_nested_attributes_for :blog_entry_sections, :reject_if => :all_blank
+
   def entry_summary(chars=200)
     if summary.blank?
       "#{body[0...chars]}..."
