@@ -119,28 +119,18 @@
   <div class="col-sm-12">
     <%= field_set_tag Spree.t(:blog_entry_sections) %>
   </div>
-
-  <%= form.fields_for :blog_entry_section do |blog_entry_section_field| %>
-    <div class="col-sm-6">
-      <%= form.field_container :blog_entry_section_layout do %>
-        <%= blog_entry_section_field.label :alt, "Layout" %>
-        <%= blog_entry_section_field.select :blog_entry_section_layout, Spree::BlogEntrySection.layouts %>
-      <% end %>
-    </div>
-
-  <% end %>
-
-</div>
-
-<div class='row'>
-  <div class="col-sm-12">
-    <%= form.field_container :body do %>
-      <div class="form-group">
-        <%= form.label :body %> <span class="text-alert">*</span>
-        <%= form.text_area :body, { :rows => 10, :class => 'form-control', :id => 'blog_entry_body'} %>
-        <%= form.error_message_on :body %>
-      </div>
+  <%= form.fields_for :blog_entry_sections do |blog_entry_section| %>
+    <% case blog_entry_section.object.layout %>
+    <% when "text" %>
+      <%= render 'blog_entry_section_text_fields', f: blog_entry_section %>
+    <% when "text_and_image" %>
+      <%= render 'blog_entry_section_text_and_image_fields', f: blog_entry_section %>
     <% end %>
+  <% end %>
+  <div class="col-sm-12">
+    <%= link_to_add_association 'Add Text Section', form, :blog_entry_sections, partial: 'blog_entry_section_text_fields' %>
+    <br>
+    <%= link_to_add_association 'Add Text & Image Section', form, :blog_entry_sections, partial: 'blog_entry_section_text_and_image_fields' %>
   </div>
 </div>
 
