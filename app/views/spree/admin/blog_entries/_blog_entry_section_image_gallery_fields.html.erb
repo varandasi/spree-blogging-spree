@@ -1,18 +1,12 @@
 <div class="nested-fields">
-  <%= f.hidden_field :layout, value: 'text_and_image' %>
+  <%= f.hidden_field :layout, value: 'image_gallery' %>
   <%= f.hidden_field :position %>
 
   <div class="col-sm-12">
-    <h4>Text &amp; Image</h4>
+    <h4>Image Gallery</h4>
   </div>
 
-  <div class="col-sm-6">
-    <div class="form-group">
-      <%= f.cktext_area :body, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="col-sm-6">
+  <div class="col-sm-12">
     <%= f.fields_for :blog_entry_section_images do |besi| %>
       <%= render "blog_entry_section_image_fields", f: besi %>
     <% end %>
