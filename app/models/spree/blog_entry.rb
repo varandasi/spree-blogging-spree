@@ -5,7 +5,6 @@ class Spree::BlogEntry < ActiveRecord::Base
   before_save :create_permalink
   before_save :set_published_at
   validates_presence_of :title
-  validates_presence_of :body
 
   default_scope { order("published_at DESC") }
   scope :visible, -> { where :visible => true }

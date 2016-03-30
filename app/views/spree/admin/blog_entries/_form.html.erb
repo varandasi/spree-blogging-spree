@@ -120,17 +120,13 @@
     <%= field_set_tag Spree.t(:blog_entry_sections) %>
   </div>
   <%= form.fields_for :blog_entry_sections do |blog_entry_section| %>
-    <% case blog_entry_section.object.layout %>
-    <% when "text" %>
-      <%= render 'blog_entry_section_text_fields', f: blog_entry_section %>
-    <% when "text_and_image" %>
-      <%= render 'blog_entry_section_text_and_image_fields', f: blog_entry_section %>
-    <% end %>
+    <%= render "blog_entry_section_#{blog_entry_section.object.layout}_fields", f: blog_entry_section %>
   <% end %>
   <div class="col-sm-12">
-    <%= link_to_add_association 'Add Text Section', form, :blog_entry_sections, partial: 'blog_entry_section_text_fields' %>
-    <br>
-    <%= link_to_add_association 'Add Text & Image Section', form, :blog_entry_sections, partial: 'blog_entry_section_text_and_image_fields' %>
+    <% Spree::BlogEntrySection.layouts.each do |layout| %>
+      <%= link_to_add_association "Add #{layout[0].titleize} Section", form, :blog_entry_sections, partial: "blog_entry_section_#{layout[0]}_fields" %>
+      <br>
+    <% end %>
   </div>
 </div>
 
