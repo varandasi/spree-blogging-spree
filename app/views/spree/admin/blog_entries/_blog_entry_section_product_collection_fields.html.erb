@@ -1,4 +1,4 @@
-<div class="nested-fields sortable">
+<div class="nested-fields sortable product-collection-section">
   <div class="sort-handle">===</div>
   <%= f.hidden_field :layout, value: 'product_collection' %>
   <%= f.hidden_field :position, class: 'position' %>
@@ -7,9 +7,20 @@
     <h4>Product Collection</h4>
   </div>
 
-  <div class="col-sm-12">
+  <div class="col-sm-6">
     <div class="form-group">
-      Product Collection Fields
+      <label>Product Search:</label>
+      <input class="ajax-product-search">
+    </div>
+    <div class="ajax-product-return"></div>
+  </div>
+
+  <div class="col-sm-6 saved-products">
+    <%= f.fields_for :vae_products do |vp| %>
+      <%= render "vae_product_fields", f: vp %>
+    <% end %>
+    <div class="hidden add-vae-product">
+      <%= link_to_add_association "Add Vae Product", f, :vae_products %>
     </div>
   </div>
 
