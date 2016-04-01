@@ -19,7 +19,6 @@ json.set! :blog_entry do
       json.vae_products section.vae_products
     end
   end
-
 end
 
 json.set! :meta do
