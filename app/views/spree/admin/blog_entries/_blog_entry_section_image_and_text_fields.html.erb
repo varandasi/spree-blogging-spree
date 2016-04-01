@@ -1,0 +1,29 @@
+<div class="nested-fields sortable">
+  <div class="sort-handle">===</div>
+  <%= f.hidden_field :layout, value: 'image_and_text' %>
+  <%= f.hidden_field :position, class: 'position' %>
+
+  <div class="col-sm-12">
+    <h4>Image &amp; Text</h4>
+  </div>
+
+  <div class="col-sm-6">
+    <%= f.fields_for :blog_entry_section_images do |besi| %>
+      <%= render "blog_entry_section_image_fields", f: besi %>
+    <% end %>
+    <div>
+      <%= link_to_add_association "Add Image", f, :blog_entry_section_images %>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="form-group">
+      <%= f.cktext_area :body, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="col-sm-12">
+    <%= link_to_remove_association "Remove Section", f %>
+    <hr>
+  </div>
+</div>

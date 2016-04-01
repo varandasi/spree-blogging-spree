@@ -1,6 +1,7 @@
 Spree::Core::Engine.routes.draw do
   namespace :admin do
     resources :blog_entries
+    get 'product_search' => 'blog_entries#product_search', as: :product_search
   end
 
   scope Spree::Config['blog_alias'], as: 'blog' do
