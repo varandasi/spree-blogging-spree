@@ -16,7 +16,7 @@ json.set! :blog_entry do
       json.layout section.layout
       json.body section.body
       json.blog_entry_section_images section.blog_entry_section_images
-      json.vae_products section.vae_products
+      json.vae_products section.vae_products.map(&:id)
     end
   end
 end
