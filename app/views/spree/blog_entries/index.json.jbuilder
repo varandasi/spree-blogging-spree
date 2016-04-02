@@ -14,7 +14,7 @@ json.array!(@blog_entries) do |blog_entry|
       json.layout section.layout
       json.body section.body
       json.blog_entry_section_images section.blog_entry_section_images
-      json.vae_products section.vae_products.map(&:id)
+      json.vae_products section.vae_products.map(&:vae_product_id)
     end
   end
 end
