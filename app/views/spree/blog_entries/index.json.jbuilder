@@ -26,5 +26,6 @@ json.array!(@blog_entries) do |blog_entry|
   end
 end
 
-
-
+json.set! :meta do
+  json.code response.status
+end

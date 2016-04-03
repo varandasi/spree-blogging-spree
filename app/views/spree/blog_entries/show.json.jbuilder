@@ -18,7 +18,7 @@ json.set! :blog_entry do
       json.blog_entry_section_images do
         json.array!(section.blog_entry_section_images) do |image|
           json.position image.position
-          json.image_url image.attachment.url(:large)
+          json.image_url asset_url(image.attachment.url(:large))
         end
       end
       json.vae_products section.vae_products.map(&:vae_product_id)
