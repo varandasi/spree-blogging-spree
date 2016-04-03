@@ -21,7 +21,7 @@ json.set! :blog_entry do
           json.image_url image.attachment.url(:large)
         end
       end
-      json.vae_products section.vae_products.map(&:id)
+      json.vae_products section.vae_products.map(&:vae_product_id)
     end
   end
 end
