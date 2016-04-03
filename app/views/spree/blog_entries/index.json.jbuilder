@@ -21,7 +21,7 @@ json.array!(@blog_entries) do |blog_entry|
           json.image_url asset_url(image.attachment.url(:large))
         end
       end
-      json.vae_products section.vae_products.map(&:id)
+      json.vae_products section.vae_products.map(&:vae_product_id)
     end
   end
 end
