@@ -1,4 +1,6 @@
-<div class="nested-fields">
+<div class="nested-fields sortable-image">
+  <%= f.hidden_field :position, class: 'image-position' %>
+
   <% if !f.object.new_record? %>
     <div class="blog_entry_section_image_thumbnail thumbnail">
       <%= image_tag(f.object.attachment.url(:thumb)) %>
