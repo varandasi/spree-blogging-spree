@@ -30,5 +30,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'simplecov', '~> 0.7.1'
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'launchy'
+  s.add_development_dependency 'stringex', '~> 2.6.0'
 
 end
